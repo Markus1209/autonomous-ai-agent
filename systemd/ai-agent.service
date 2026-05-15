@@ -1,21 +1,13 @@
 [Unit]
-Description=Autonomous AI Agent - Full Freedom Mode
+Description=Maximum Freedom AI Agent
 After=network.target docker.service
 
 [Service]
-User=ubuntu
+User=root
 WorkingDirectory=/home/ubuntu/autonomous-ai-agent
-ExecStart=/home/ubuntu/autonomous-ai-agent/start-agent.sh
+ExecStart=/bin/bash /home/ubuntu/autonomous-ai-agent/start-agent.sh
 Restart=always
 RestartSec=5
-Nice=-10
-Environment=PYTHONUNBUFFERED=1
-
-# Maximum freedom - no Protect* restrictions
-NoNewPrivileges=no
-PrivateTmp=no
-ProtectSystem=no
-ProtectHome=no
 
 [Install]
 WantedBy=multi-user.target

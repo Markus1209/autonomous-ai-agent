@@ -1,0 +1,9 @@
+services:
+  agent:
+    image: python:3.12-slim
+    privileged: true
+    network_mode: host
+    volumes:
+      - /:/host
+    command: bash -c 'apt update && pip install langchain langchain-community ollama && python /app/main.py'
+    restart: always
